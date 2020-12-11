@@ -109,11 +109,15 @@ def anyone_win():
         p2_win = True
         return p2_win    
 def reset(): # bassically reset the games
-    global default_value_to_change
+             
     global value_to_change
     global p1_win 
     global p2_win
-
+    default_value_to_change =  [
+         none,none,none,
+         none,none,none,
+         none,none,none
+            ]
     p1_win = False
     p2_win = False
     value_to_change = default_value_to_change
@@ -172,5 +176,6 @@ while True: # game loop
     turn += 1
 
 # bugs bugs bugs
-# whenver I try to play again after 2 times it does not reset
+# in the first move of more than second match it takes second turn to 
 # we can change rewrite the value of value_to_change in game LOL
+# there are lot of error when user input wrong shit
