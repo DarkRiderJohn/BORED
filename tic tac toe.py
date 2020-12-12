@@ -41,7 +41,7 @@ def turns(turn): # basically this game turn can be cateriozed into odd or even e
         return p2
 
 
-def anyone_win():
+def anyone_win(): # just a condition to check if someone had win or not
     global value_to_change
     global p1
     global p1_win
@@ -108,6 +108,18 @@ def anyone_win():
     elif value_to_change[2] == p2 and value_to_change[4] == p1 and value_to_change[6] == p1:
         p2_win = True
         return p2_win    
+
+
+def don_rewrite(place): # just a fix for one of my bug 
+    global p1
+    global p2
+    global value_to_change
+
+    if value_to_change[place -1] == p1 or value_to_change[place -1] == p2:
+        print("The place you are trying to use is already use...")
+        print("Renter...")
+        return True
+        
 def reset(): # bassically reset the games
              
     global value_to_change
@@ -133,7 +145,6 @@ p2 = "O"
 none = "-"
 p1_win = False
 p2_win = False
-
 
 default_value_to_change = [
          none,none,none,
@@ -171,11 +182,13 @@ while True: # game loop
             break
 
     place = int(input("Enter the number of that place:"))
+    if don_rewrite(place):
+       continue 
     update(place -1,turns(turn))
     anyone_win()
     turn += 1
-
+print("Why are u still here program already finished")
 # bugs bugs bugs
 # in the first move of more than second match it takes second turn to 
-# we can change rewrite the value of value_to_change in game LOL
 # there are lot of error when user input wrong shit
+
