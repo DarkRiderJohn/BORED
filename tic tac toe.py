@@ -105,7 +105,7 @@ def anyone_win(): # just a condition to check if someone had win or not
         p2_win = True
         return p2_win
 
-    elif value_to_change[2] == p2 and value_to_change[4] == p1 and value_to_change[6] == p1:
+    elif value_to_change[2] == p2 and value_to_change[4] == p2 and value_to_change[6] == p2:
         p2_win = True
         return p2_win    
 
@@ -185,6 +185,7 @@ while True: # game loop
     if don_rewrite(place):
        continue 
     update(place -1,turns(turn))
+    
     anyone_win()
     turn += 1
 print("Why are u still here program already finished")
